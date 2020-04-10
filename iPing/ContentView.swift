@@ -69,25 +69,43 @@ struct CollectionViewCell: View {
     let data: DataModel
     
     @State private var selected = false
-    
+    @State private var show = true
     var body: some View {
         Button(action: {
             print("\(self.data.name) pressed")
         }) {
             VStack {
                 Spacer(minLength: 30)
-                Image(self.data.imageName)
-                .resizable()
-                .frame(width: 70, height: 70)
-                .foregroundColor(.yellow)
-                    .clipShape(Circle())
-                .shadow(radius: 10)
+                ZStack {
+                    Circle()
+                        .trim(from: self.selected ? 0 : 1, to: 1)
+                        .stroke(lineWidth: 6.0)
+                        .opacity((self.selected && show) ? 1 : 0)
+                        .foregroundColor(Color.yellow)
+                        .rotationEffect(Angle(degrees: 270))
+                    
+                    Image(self.data.imageName)
+                        .resizable()
+                        .frame(width: 70, height: 70)
+                        .foregroundColor(.yellow)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                }
                 
                 Spacer()
                 Text(self.data.name)
                     .font(Font.system(size: 14))
             }
-        }.buttonStyle(BounceButtonStyle())
+        }.buttonStyle(BounceButtonStyle(handler: {
+            self.show = true
+            self.selected = false
+            withAnimation(Animation.easeInOut(duration: 0.8)) {
+                self.selected = true
+            }
+            withAnimation(Animation.easeInOut(duration: 1).delay(0.8)) {
+                self.show = false
+            }
+        }))
     }
 }
 
@@ -99,9 +117,10 @@ struct ContentView_Previews: PreviewProvider {
 
 struct BounceButtonStyle: ButtonStyle {
  
+    let handler: () -> ()
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label.onTapGesture(count: 2, perform: {
-            print("tapped")
+            self.handler()
         }).scaleEffect(configuration.isPressed ? 0.9 : 1.0)
     }
 }
