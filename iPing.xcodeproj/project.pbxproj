@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDE377EF243ED9B70002D7DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE377EE243ED9B70002D7DC /* AppDelegate.swift */; };
+		EDE377F1243ED9B70002D7DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE377F0243ED9B70002D7DC /* SceneDelegate.swift */; };
+		EDE377F3243ED9B70002D7DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE377F2243ED9B70002D7DC /* ContentView.swift */; };
+		EDE377F5243ED9BB0002D7DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE377F4243ED9BB0002D7DC /* Assets.xcassets */; };
+		EDE377F8243ED9BB0002D7DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE377F7243ED9BB0002D7DC /* Preview Assets.xcassets */; };
+		EDE377FB243ED9BB0002D7DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE377F9243ED9BB0002D7DC /* LaunchScreen.storyboard */; };
+		EDE37806243ED9BC0002D7DC /* iPingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE37805243ED9BC0002D7DC /* iPingTests.swift */; };
+		EDE37811243ED9BC0002D7DC /* iPingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE37810243ED9BC0002D7DC /* iPingUITests.swift */; };
+		EDE37820244088BE0002D7DC /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = EDE3781F244088BE0002D7DC /* QGrid */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDE37802243ED9BC0002D7DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDE377E3243ED9B60002D7DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDE377EA243ED9B70002D7DC;
+			remoteInfo = iPing;
+		};
+		EDE3780D243ED9BC0002D7DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDE377E3243ED9B60002D7DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDE377EA243ED9B70002D7DC;
+			remoteInfo = iPing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EDE377EB243ED9B70002D7DC /* iPing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE377EE243ED9B70002D7DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDE377F0243ED9B70002D7DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EDE377F2243ED9B70002D7DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EDE377F4243ED9BB0002D7DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDE377F7243ED9BB0002D7DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EDE377FA243ED9BB0002D7DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EDE377FC243ED9BB0002D7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDE37801243ED9BC0002D7DC /* iPingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE37805243ED9BC0002D7DC /* iPingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPingTests.swift; sourceTree = "<group>"; };
+		EDE37807243ED9BC0002D7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDE3780C243ED9BC0002D7DC /* iPingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE37810243ED9BC0002D7DC /* iPingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPingUITests.swift; sourceTree = "<group>"; };
+		EDE37812243ED9BC0002D7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDE377E8243ED9B70002D7DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE37820244088BE0002D7DC /* QGrid in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDE377FE243ED9BC0002D7DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDE37809243ED9BC0002D7DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDE377E2243ED9B60002D7DC = {
+			isa = PBXGroup;
+			children = (
+				EDE377ED243ED9B70002D7DC /* iPing */,
+				EDE37804243ED9BC0002D7DC /* iPingTests */,
+				EDE3780F243ED9BC0002D7DC /* iPingUITests */,
+				EDE377EC243ED9B70002D7DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDE377EC243ED9B70002D7DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDE377EB243ED9B70002D7DC /* iPing.app */,
+				EDE37801243ED9BC0002D7DC /* iPingTests.xctest */,
+				EDE3780C243ED9BC0002D7DC /* iPingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDE377ED243ED9B70002D7DC /* iPing */ = {
+			isa = PBXGroup;
+			children = (
+				EDE377EE243ED9B70002D7DC /* AppDelegate.swift */,
+				EDE377F0243ED9B70002D7DC /* SceneDelegate.swift */,
+				EDE377F2243ED9B70002D7DC /* ContentView.swift */,
+				EDE377F4243ED9BB0002D7DC /* Assets.xcassets */,
+				EDE377F9243ED9BB0002D7DC /* LaunchScreen.storyboard */,
+				EDE377FC243ED9BB0002D7DC /* Info.plist */,
+				EDE377F6243ED9BB0002D7DC /* Preview Content */,
+			);
+			path = iPing;
+			sourceTree = "<group>";
+		};
+		EDE377F6243ED9BB0002D7DC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EDE377F7243ED9BB0002D7DC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EDE37804243ED9BC0002D7DC /* iPingTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDE37805243ED9BC0002D7DC /* iPingTests.swift */,
+				EDE37807243ED9BC0002D7DC /* Info.plist */,
+			);
+			path = iPingTests;
+			sourceTree = "<group>";
+		};
+		EDE3780F243ED9BC0002D7DC /* iPingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EDE37810243ED9BC0002D7DC /* iPingUITests.swift */,
+				EDE37812243ED9BC0002D7DC /* Info.plist */,
+			);
+			path = iPingUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDE377EA243ED9B70002D7DC /* iPing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDE37815243ED9BC0002D7DC /* Build configuration list for PBXNativeTarget "iPing" */;
+			buildPhases = (
+				EDE377E7243ED9B70002D7DC /* Sources */,
+				EDE377E8243ED9B70002D7DC /* Frameworks */,
+				EDE377E9243ED9B70002D7DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPing;
+			packageProductDependencies = (
+				EDE3781F244088BE0002D7DC /* QGrid */,
+			);
+			productName = iPing;
+			productReference = EDE377EB243ED9B70002D7DC /* iPing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDE37800243ED9BC0002D7DC /* iPingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDE37818243ED9BC0002D7DC /* Build configuration list for PBXNativeTarget "iPingTests" */;
+			buildPhases = (
+				EDE377FD243ED9BC0002D7DC /* Sources */,
+				EDE377FE243ED9BC0002D7DC /* Frameworks */,
+				EDE377FF243ED9BC0002D7DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDE37803243ED9BC0002D7DC /* PBXTargetDependency */,
+			);
+			name = iPingTests;
+			productName = iPingTests;
+			productReference = EDE37801243ED9BC0002D7DC /* iPingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EDE3780B243ED9BC0002D7DC /* iPingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDE3781B243ED9BC0002D7DC /* Build configuration list for PBXNativeTarget "iPingUITests" */;
+			buildPhases = (
+				EDE37808243ED9BC0002D7DC /* Sources */,
+				EDE37809243ED9BC0002D7DC /* Frameworks */,
+				EDE3780A243ED9BC0002D7DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDE3780E243ED9BC0002D7DC /* PBXTargetDependency */,
+			);
+			name = iPingUITests;
+			productName = iPingUITests;
+			productReference = EDE3780C243ED9BC0002D7DC /* iPingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDE377E3243ED9B60002D7DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = changman;
+				TargetAttributes = {
+					EDE377EA243ED9B70002D7DC = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					EDE37800243ED9BC0002D7DC = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = EDE377EA243ED9B70002D7DC;
+					};
+					EDE3780B243ED9BC0002D7DC = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = EDE377EA243ED9B70002D7DC;
+					};
+				};
+			};
+			buildConfigurationList = EDE377E6243ED9B60002D7DC /* Build configuration list for PBXProject "iPing" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDE377E2243ED9B60002D7DC;
+			packageReferences = (
+				EDE3781E244088BE0002D7DC /* XCRemoteSwiftPackageReference "QGrid" */,
+			);
+			productRefGroup = EDE377EC243ED9B70002D7DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDE377EA243ED9B70002D7DC /* iPing */,
+				EDE37800243ED9BC0002D7DC /* iPingTests */,
+				EDE3780B243ED9BC0002D7DC /* iPingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDE377E9243ED9B70002D7DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE377FB243ED9BB0002D7DC /* LaunchScreen.storyboard in Resources */,
+				EDE377F8243ED9BB0002D7DC /* Preview Assets.xcassets in Resources */,
+				EDE377F5243ED9BB0002D7DC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDE377FF243ED9BC0002D7DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDE3780A243ED9BC0002D7DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDE377E7243ED9B70002D7DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE377EF243ED9B70002D7DC /* AppDelegate.swift in Sources */,
+				EDE377F1243ED9B70002D7DC /* SceneDelegate.swift in Sources */,
+				EDE377F3243ED9B70002D7DC /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDE377FD243ED9BC0002D7DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE37806243ED9BC0002D7DC /* iPingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDE37808243ED9BC0002D7DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE37811243ED9BC0002D7DC /* iPingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDE37803243ED9BC0002D7DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDE377EA243ED9B70002D7DC /* iPing */;
+			targetProxy = EDE37802243ED9BC0002D7DC /* PBXContainerItemProxy */;
+		};
+		EDE3780E243ED9BC0002D7DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDE377EA243ED9B70002D7DC /* iPing */;
+			targetProxy = EDE3780D243ED9BC0002D7DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EDE377F9243ED9BB0002D7DC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDE377FA243ED9BB0002D7DC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDE37813243ED9BC0002D7DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EDE37814243ED9BC0002D7DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDE37816243ED9BC0002D7DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"iPing/Preview Content\"";
+				DEVELOPMENT_TEAM = 47RZ4GF77T;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iPing/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = changman.iPing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDE37817243ED9BC0002D7DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"iPing/Preview Content\"";
+				DEVELOPMENT_TEAM = ZH9C52WH4J;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iPing/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = changman.iPing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EDE37819243ED9BC0002D7DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47RZ4GF77T;
+				INFOPLIST_FILE = iPingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = changman.iPingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iPing.app/iPing";
+			};
+			name = Debug;
+		};
+		EDE3781A243ED9BC0002D7DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47RZ4GF77T;
+				INFOPLIST_FILE = iPingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = changman.iPingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iPing.app/iPing";
+			};
+			name = Release;
+		};
+		EDE3781C243ED9BC0002D7DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47RZ4GF77T;
+				INFOPLIST_FILE = iPingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = changman.iPingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iPing;
+			};
+			name = Debug;
+		};
+		EDE3781D243ED9BC0002D7DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47RZ4GF77T;
+				INFOPLIST_FILE = iPingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = changman.iPingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iPing;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDE377E6243ED9B60002D7DC /* Build configuration list for PBXProject "iPing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDE37813243ED9BC0002D7DC /* Debug */,
+				EDE37814243ED9BC0002D7DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDE37815243ED9BC0002D7DC /* Build configuration list for PBXNativeTarget "iPing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDE37816243ED9BC0002D7DC /* Debug */,
+				EDE37817243ED9BC0002D7DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDE37818243ED9BC0002D7DC /* Build configuration list for PBXNativeTarget "iPingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDE37819243ED9BC0002D7DC /* Debug */,
+				EDE3781A243ED9BC0002D7DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDE3781B243ED9BC0002D7DC /* Build configuration list for PBXNativeTarget "iPingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDE3781C243ED9BC0002D7DC /* Debug */,
+				EDE3781D243ED9BC0002D7DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EDE3781E244088BE0002D7DC /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EDE3781F244088BE0002D7DC /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDE3781E244088BE0002D7DC /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = EDE377E3243ED9B60002D7DC /* Project object */;
+}
