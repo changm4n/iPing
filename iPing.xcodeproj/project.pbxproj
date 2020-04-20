@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDAA644824432C3B0001F82A /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA644724432C3B0001F82A /* StartView.swift */; };
+		EDAA644A244856180001F82A /* PingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA6449244856180001F82A /* PingButton.swift */; };
+		EDAA644C2448584B0001F82A /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA644B2448584B0001F82A /* CollectionView.swift */; };
+		EDAA644E244C3BE00001F82A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA644D244C3BE00001F82A /* LoginView.swift */; };
+		EDAA6451244C4EE70001F82A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDAA6450244C4EE70001F82A /* UserNotifications.framework */; };
+		EDAA6453244C4EEB0001F82A /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDAA6452244C4EEB0001F82A /* PushKit.framework */; };
+		EDAA6457244DD8980001F82A /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = EDAA6456244DD8980001F82A /* Apollo */; };
+		EDAA6459244DD8980001F82A /* ApolloCodegenLib in Frameworks */ = {isa = PBXBuildFile; productRef = EDAA6458244DD8980001F82A /* ApolloCodegenLib */; };
+		EDAA645B244DD9630001F82A /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = EDAA645A244DD9630001F82A /* Queries.graphql */; };
+		EDAA645E244DDA390001F82A /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA645D244DDA390001F82A /* SessionService.swift */; };
+		EDAA6460244DDB520001F82A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA645F244DDB520001F82A /* Network.swift */; };
 		EDE377EF243ED9B70002D7DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE377EE243ED9B70002D7DC /* AppDelegate.swift */; };
 		EDE377F1243ED9B70002D7DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE377F0243ED9B70002D7DC /* SceneDelegate.swift */; };
 		EDE377F3243ED9B70002D7DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE377F2243ED9B70002D7DC /* ContentView.swift */; };
@@ -15,7 +26,6 @@
 		EDE377FB243ED9BB0002D7DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE377F9243ED9BB0002D7DC /* LaunchScreen.storyboard */; };
 		EDE37806243ED9BC0002D7DC /* iPingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE37805243ED9BC0002D7DC /* iPingTests.swift */; };
 		EDE37811243ED9BC0002D7DC /* iPingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE37810243ED9BC0002D7DC /* iPingUITests.swift */; };
-		EDE37820244088BE0002D7DC /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = EDE3781F244088BE0002D7DC /* QGrid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +46,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EDAA644724432C3B0001F82A /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		EDAA6449244856180001F82A /* PingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingButton.swift; sourceTree = "<group>"; };
+		EDAA644B2448584B0001F82A /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		EDAA644D244C3BE00001F82A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EDAA6450244C4EE70001F82A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		EDAA6452244C4EEB0001F82A /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
+		EDAA6454244C4EFA0001F82A /* iPing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iPing.entitlements; sourceTree = "<group>"; };
+		EDAA645A244DD9630001F82A /* Queries.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
+		EDAA645D244DDA390001F82A /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		EDAA645F244DDB520001F82A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		EDE377EB243ED9B70002D7DC /* iPing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE377EE243ED9B70002D7DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDE377F0243ED9B70002D7DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +77,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDE37820244088BE0002D7DC /* QGrid in Frameworks */,
+				EDAA6453244C4EEB0001F82A /* PushKit.framework in Frameworks */,
+				EDAA6457244DD8980001F82A /* Apollo in Frameworks */,
+				EDAA6451244C4EE70001F82A /* UserNotifications.framework in Frameworks */,
+				EDAA6459244DD8980001F82A /* ApolloCodegenLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +101,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EDAA644F244C4EE60001F82A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDAA6452244C4EEB0001F82A /* PushKit.framework */,
+				EDAA6450244C4EE70001F82A /* UserNotifications.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDAA645C244DDA260001F82A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EDAA645A244DD9630001F82A /* Queries.graphql */,
+				EDAA645D244DDA390001F82A /* SessionService.swift */,
+				EDAA645F244DDB520001F82A /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		EDE377E2243ED9B60002D7DC = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +127,7 @@
 				EDE37804243ED9BC0002D7DC /* iPingTests */,
 				EDE3780F243ED9BC0002D7DC /* iPingUITests */,
 				EDE377EC243ED9B70002D7DC /* Products */,
+				EDAA644F244C4EE60001F82A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,9 +144,15 @@
 		EDE377ED243ED9B70002D7DC /* iPing */ = {
 			isa = PBXGroup;
 			children = (
+				EDAA645C244DDA260001F82A /* Network */,
+				EDAA6454244C4EFA0001F82A /* iPing.entitlements */,
 				EDE377EE243ED9B70002D7DC /* AppDelegate.swift */,
 				EDE377F0243ED9B70002D7DC /* SceneDelegate.swift */,
 				EDE377F2243ED9B70002D7DC /* ContentView.swift */,
+				EDAA6449244856180001F82A /* PingButton.swift */,
+				EDAA644724432C3B0001F82A /* StartView.swift */,
+				EDAA644D244C3BE00001F82A /* LoginView.swift */,
+				EDAA644B2448584B0001F82A /* CollectionView.swift */,
 				EDE377F4243ED9BB0002D7DC /* Assets.xcassets */,
 				EDE377F9243ED9BB0002D7DC /* LaunchScreen.storyboard */,
 				EDE377FC243ED9BB0002D7DC /* Info.plist */,
@@ -155,7 +204,8 @@
 			);
 			name = iPing;
 			packageProductDependencies = (
-				EDE3781F244088BE0002D7DC /* QGrid */,
+				EDAA6456244DD8980001F82A /* Apollo */,
+				EDAA6458244DD8980001F82A /* ApolloCodegenLib */,
 			);
 			productName = iPing;
 			productReference = EDE377EB243ED9B70002D7DC /* iPing.app */;
@@ -231,6 +281,7 @@
 			mainGroup = EDE377E2243ED9B60002D7DC;
 			packageReferences = (
 				EDE3781E244088BE0002D7DC /* XCRemoteSwiftPackageReference "QGrid" */,
+				EDAA6455244DD8980001F82A /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = EDE377EC243ED9B70002D7DC /* Products */;
 			projectDirPath = "";
@@ -250,6 +301,7 @@
 			files = (
 				EDE377FB243ED9BB0002D7DC /* LaunchScreen.storyboard in Resources */,
 				EDE377F8243ED9BB0002D7DC /* Preview Assets.xcassets in Resources */,
+				EDAA645B244DD9630001F82A /* Queries.graphql in Resources */,
 				EDE377F5243ED9BB0002D7DC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,9 +327,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDAA644C2448584B0001F82A /* CollectionView.swift in Sources */,
+				EDAA644E244C3BE00001F82A /* LoginView.swift in Sources */,
+				EDAA644A244856180001F82A /* PingButton.swift in Sources */,
 				EDE377EF243ED9B70002D7DC /* AppDelegate.swift in Sources */,
+				EDAA645E244DDA390001F82A /* SessionService.swift in Sources */,
+				EDAA6460244DDB520001F82A /* Network.swift in Sources */,
 				EDE377F1243ED9B70002D7DC /* SceneDelegate.swift in Sources */,
 				EDE377F3243ED9B70002D7DC /* ContentView.swift in Sources */,
+				EDAA644824432C3B0001F82A /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iPing/iPing.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iPing/Preview Content\"";
 				DEVELOPMENT_TEAM = 47RZ4GF77T;
@@ -462,9 +521,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iPing/iPing.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iPing/Preview Content\"";
-				DEVELOPMENT_TEAM = ZH9C52WH4J;
+				DEVELOPMENT_TEAM = 47RZ4GF77T;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iPing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -604,6 +664,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EDAA6455244DD8980001F82A /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.24.0;
+			};
+		};
 		EDE3781E244088BE0002D7DC /* XCRemoteSwiftPackageReference "QGrid" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Q-Mobile/QGrid";
@@ -615,10 +683,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EDE3781F244088BE0002D7DC /* QGrid */ = {
+		EDAA6456244DD8980001F82A /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EDE3781E244088BE0002D7DC /* XCRemoteSwiftPackageReference "QGrid" */;
-			productName = QGrid;
+			package = EDAA6455244DD8980001F82A /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		EDAA6458244DD8980001F82A /* ApolloCodegenLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDAA6455244DD8980001F82A /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloCodegenLib;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

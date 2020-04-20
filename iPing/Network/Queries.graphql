@@ -1,0 +1,17 @@
+#Sign in/up
+query emailcheck($email: String!) {
+  requestSecret(email: $email)
+}
+
+query Signin($email: String!, $password: String!) {
+  signIn(email: $email, password : $password)
+}
+
+#Session
+query me {
+  me {
+    name
+    password
+    tag
+  }
+}
