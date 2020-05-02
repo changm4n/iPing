@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2F01E85245C308B0047C6B6 /* PasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F01E84245C308B0047C6B6 /* PasscodeView.swift */; };
+		C2F01E87245C30980047C6B6 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F01E86245C30980047C6B6 /* NumberView.swift */; };
+		C2F01E90245C44F50047C6B6 /* NotoSansCJKjp-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F01E89245C44F10047C6B6 /* NotoSansCJKjp-Medium.otf */; };
+		C2F01E91245C44F50047C6B6 /* NotoSansCJKjp-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F01E8A245C44F20047C6B6 /* NotoSansCJKjp-Thin.otf */; };
+		C2F01E92245C44F50047C6B6 /* NotoSansCJKjp-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F01E8B245C44F30047C6B6 /* NotoSansCJKjp-Regular.otf */; };
+		C2F01E93245C44F50047C6B6 /* NotoSansCJKjp-DemiLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F01E8C245C44F30047C6B6 /* NotoSansCJKjp-DemiLight.otf */; };
+		C2F01E94245C44F50047C6B6 /* NotoSansCJKjp-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F01E8D245C44F40047C6B6 /* NotoSansCJKjp-Black.otf */; };
+		C2F01E95245C44F50047C6B6 /* NotoSansCJKjp-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F01E8E245C44F50047C6B6 /* NotoSansCJKjp-Bold.otf */; };
+		C2F01E96245C44F50047C6B6 /* NotoSansCJKjp-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F01E8F245C44F50047C6B6 /* NotoSansCJKjp-Light.otf */; };
 		EDAA644824432C3B0001F82A /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA644724432C3B0001F82A /* StartView.swift */; };
 		EDAA644A244856180001F82A /* PingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA6449244856180001F82A /* PingButton.swift */; };
 		EDAA644C2448584B0001F82A /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA644B2448584B0001F82A /* CollectionView.swift */; };
@@ -46,6 +55,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C2F01E84245C308B0047C6B6 /* PasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeView.swift; sourceTree = "<group>"; };
+		C2F01E86245C30980047C6B6 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
+		C2F01E89245C44F10047C6B6 /* NotoSansCJKjp-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Medium.otf"; sourceTree = "<group>"; };
+		C2F01E8A245C44F20047C6B6 /* NotoSansCJKjp-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Thin.otf"; sourceTree = "<group>"; };
+		C2F01E8B245C44F30047C6B6 /* NotoSansCJKjp-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Regular.otf"; sourceTree = "<group>"; };
+		C2F01E8C245C44F30047C6B6 /* NotoSansCJKjp-DemiLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-DemiLight.otf"; sourceTree = "<group>"; };
+		C2F01E8D245C44F40047C6B6 /* NotoSansCJKjp-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Black.otf"; sourceTree = "<group>"; };
+		C2F01E8E245C44F50047C6B6 /* NotoSansCJKjp-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Bold.otf"; sourceTree = "<group>"; };
+		C2F01E8F245C44F50047C6B6 /* NotoSansCJKjp-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Light.otf"; sourceTree = "<group>"; };
 		EDAA644724432C3B0001F82A /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		EDAA6449244856180001F82A /* PingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingButton.swift; sourceTree = "<group>"; };
 		EDAA644B2448584B0001F82A /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
@@ -101,6 +119,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2F01E88245C44D80047C6B6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C2F01E8D245C44F40047C6B6 /* NotoSansCJKjp-Black.otf */,
+				C2F01E8E245C44F50047C6B6 /* NotoSansCJKjp-Bold.otf */,
+				C2F01E8C245C44F30047C6B6 /* NotoSansCJKjp-DemiLight.otf */,
+				C2F01E8F245C44F50047C6B6 /* NotoSansCJKjp-Light.otf */,
+				C2F01E89245C44F10047C6B6 /* NotoSansCJKjp-Medium.otf */,
+				C2F01E8B245C44F30047C6B6 /* NotoSansCJKjp-Regular.otf */,
+				C2F01E8A245C44F20047C6B6 /* NotoSansCJKjp-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		EDAA644F244C4EE60001F82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,10 +184,13 @@
 				EDAA6449244856180001F82A /* PingButton.swift */,
 				EDAA644724432C3B0001F82A /* StartView.swift */,
 				EDAA644D244C3BE00001F82A /* LoginView.swift */,
+				C2F01E86245C30980047C6B6 /* NumberView.swift */,
+				C2F01E84245C308B0047C6B6 /* PasscodeView.swift */,
 				EDAA644B2448584B0001F82A /* CollectionView.swift */,
 				EDE377F4243ED9BB0002D7DC /* Assets.xcassets */,
 				EDE377F9243ED9BB0002D7DC /* LaunchScreen.storyboard */,
 				EDE377FC243ED9BB0002D7DC /* Info.plist */,
+				C2F01E88245C44D80047C6B6 /* Fonts */,
 				EDE377F6243ED9BB0002D7DC /* Preview Content */,
 			);
 			path = iPing;
@@ -299,9 +334,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F01E96245C44F50047C6B6 /* NotoSansCJKjp-Light.otf in Resources */,
 				EDE377FB243ED9BB0002D7DC /* LaunchScreen.storyboard in Resources */,
 				EDE377F8243ED9BB0002D7DC /* Preview Assets.xcassets in Resources */,
+				C2F01E91245C44F50047C6B6 /* NotoSansCJKjp-Thin.otf in Resources */,
+				C2F01E94245C44F50047C6B6 /* NotoSansCJKjp-Black.otf in Resources */,
+				C2F01E92245C44F50047C6B6 /* NotoSansCJKjp-Regular.otf in Resources */,
 				EDAA645B244DD9630001F82A /* Queries.graphql in Resources */,
+				C2F01E93245C44F50047C6B6 /* NotoSansCJKjp-DemiLight.otf in Resources */,
+				C2F01E90245C44F50047C6B6 /* NotoSansCJKjp-Medium.otf in Resources */,
+				C2F01E95245C44F50047C6B6 /* NotoSansCJKjp-Bold.otf in Resources */,
 				EDE377F5243ED9BB0002D7DC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,12 +371,14 @@
 			files = (
 				EDAA644C2448584B0001F82A /* CollectionView.swift in Sources */,
 				EDAA644E244C3BE00001F82A /* LoginView.swift in Sources */,
+				C2F01E85245C308B0047C6B6 /* PasscodeView.swift in Sources */,
 				EDAA644A244856180001F82A /* PingButton.swift in Sources */,
 				EDE377EF243ED9B70002D7DC /* AppDelegate.swift in Sources */,
 				EDAA645E244DDA390001F82A /* SessionService.swift in Sources */,
 				EDAA6460244DDB520001F82A /* Network.swift in Sources */,
 				EDE377F1243ED9B70002D7DC /* SceneDelegate.swift in Sources */,
 				EDE377F3243ED9B70002D7DC /* ContentView.swift in Sources */,
+				C2F01E87245C30980047C6B6 /* NumberView.swift in Sources */,
 				EDAA644824432C3B0001F82A /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
