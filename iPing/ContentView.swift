@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import QGrid
 
 extension Array {
     func chunked(by chunkSize: Int) -> [[Element]] {

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>149453851408-g2t4ce5cdu473lbjbq46qaepg81mukcs.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.149453851408-g2t4ce5cdu473lbjbq46qaepg81mukcs</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB1OSM6hfT7fgoC-6Mo-yQ00xBCfVYVhGg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>149453851408</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>changman.iPing</string>
+	<key>PROJECT_ID</key>
+	<string>iping-aff12</string>
+	<key>STORAGE_BUCKET</key>
+	<string>iping-aff12.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:149453851408:ios:710f24a14f0da3cebc3395</string>
+	<key>DATABASE_URL</key>
+	<string>https://iping-aff12.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,6 @@
+framework module Pods_iPing_iPingUITests {
+  umbrella header "Pods-iPing-iPingUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

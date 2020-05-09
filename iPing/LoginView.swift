@@ -9,23 +9,59 @@
 import SwiftUI
 
 struct LoginView: View {
+    
+    @State var isActive: Bool = false
+    init() {
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().tintColor = UIColor(named: "blackGray")
+        UINavigationBar.appearance().backgroundColor = .clear
+    }
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text("IPING")
+        NavigationView {
+            VStack(alignment: .leading) {
+                LogoView().padding(.top, 100)
                 Spacer()
-            }.padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0) + 15)
-            Spacer()
-            
-            LogoView()
-            Spacer()
-            LoginForm()
-            Spacer().frame(height: 30)
-            SignUpButton()
-            Spacer().frame(height: 20)
+                
+//                NavigationLink(destination: NumberView()) {
+//                    Text("iPING 시작하기")
+//                                        .foregroundColor(.white)
+//                                        .fontWeight(.bold)
+//                                        .frame(width: UIScreen.main.bounds.width - 48, height: 50)
+//                }.background(Color("theme"))
+//                .clipShape(Capsule())
+//                .padding(.bottom, 8)
+                
+                NavigationLink(destination: NumberView(), isActive: self.$isActive) {
+                    Text("iPING 시작하기")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(width: UIScreen.main.bounds.width - 48, height: 50)
+                }.background(Color("theme"))
+                    .clipShape(Capsule())
+                    .padding(.bottom, 8)
+                
+                Button(action: {
+                    
+                }) {
+                    Text("로그인")
+                        .foregroundColor(.black)
+                        .fontWeight(.bold)
+                        .frame(width: UIScreen.main.bounds.width - 48, height: 50)
+                }
+                .background(Color.white)
+                .clipShape(Capsule())
+                
+                Spacer().frame(height: 30)
+                SignUpButton()
+                Spacer().frame(height: 20)
+            }
+            .padding()
+            .background(Color("background"))
+            .edgesIgnoringSafeArea(.all)
+            .navigationBarTitle("", displayMode: .large)
         }
-        .padding()
-        .edgesIgnoringSafeArea(.top)
     }
 }
 
@@ -35,65 +71,21 @@ struct LoginView_Previews: PreviewProvider {
             ZStack {
                 Color.black.edgesIgnoringSafeArea(.all)
                 LoginView().environment(\.colorScheme, .dark)
-                
             }
-            //            LoginView().environment(\.colorScheme, .light)
+            LoginView()
         }
     }
 }
 
 struct LogoView: View {
-    
-    var fontSize: CGFloat = 45
+    var fontSize: CGFloat = 35
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                HStack(alignment: .center, spacing: 0) {
-                    Text("누군가의 ").font(Font.system(size: fontSize, weight: .thin))
-                    Text("핑").font(Font.system(size: fontSize, weight: .bold))
-                    Text("이").font(Font.system(size: fontSize, weight: .thin))
-                }
-                Text("설렘이 되는").font(Font.system(size: fontSize, weight: .thin))
-                Text("경험").font(Font.system(size: fontSize, weight: .thin))
+                Text("쉽고 빠르게").font(Font.system(size: 37, weight: .light))
+                Text("주고받는").font(Font.system(size: 37, weight: .light))
+                Text("iPING").font(Font.system(size: 39, weight: .semibold))
             }
-        }
-    }
-}
-
-struct LoginForm : View {
-    
-    @State var mail = ""
-    @State var pass = ""
-    
-    var body: some View {
-        VStack {
-            VStack {
-                HStack(spacing: 15) {
-                    TextField("ID", text: self.$mail)
-                }.padding(.vertical, 20)
-                
-                Divider()
-                
-                HStack(spacing: 15) {
-                    SecureField("Password", text: self.$pass)
-                    
-                }.padding(.vertical, 20)
-                
-                Divider()
-                Button(action: {
-                    
-                }) {
-                    Text("로그인 하기")
-                        .foregroundColor(.orange)
-                        .fontWeight(.bold)
-                        .padding(.vertical)
-                }
-                
-            }
-            .padding(.vertical)
-            .padding(.horizontal, 20)
-            .background(Color.gray.opacity(0.3))
-            .cornerRadius(30)
         }
     }
 }

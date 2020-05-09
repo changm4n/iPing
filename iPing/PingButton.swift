@@ -12,49 +12,78 @@ struct PingButton: View {
     
     @ObservedObject var data: DataModel
     
-    @GestureState var tap = false
+    @GestureState var tap: Bool = false
+    
+    @State var tapped: Bool = false
     @State var press = false
+    
+    @State var smallCircleOpacity: Double = 1
+    @State var bigCircleOpacity: Double = 1
+    @State var bigCircleScale: CGFloat = 0.9
     
     var body: some View {
         VStack {
             Spacer(minLength: 30)
             ZStack {
+                Circle().trim(from: tap ? 0.0001 : 1.1, to: 1)
+                    .stroke(Color.yellow, style: StrokeStyle(lineWidth: 4, lineCap: .round))
+                    .rotationEffect(Angle(degrees: 90))
+                    .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
+                    .scaleEffect(tap ? 1.2 : 0.98)
+                    .opacity(smallCircleOpacity)
+                
+                
+                Circle().trim(from: 0, to: 1)
+                    .stroke(Color.yellow, style: StrokeStyle(lineWidth: 1.5, lineCap: .round))
+                    .scaleEffect(bigCircleScale)
+                    .opacity(bigCircleOpacity)
+                
+                
                 Image(self.data.imageName)
                     .resizable()
                     .frame(width: 60, height: 60)
-                    .opacity(press ? 0 : 1)
-                    .scaleEffect(press ? 0 : 1)
-                
-                Image(systemName: "checkmark.circle.fill")
-                    .resizable()
-                    .font(.system(size: 44, weight: .light))
-                    .foregroundColor(.yellow)
-                    .opacity(press ? 1: 0)
-                    .scaleEffect(press ? 1 : 0)
-            }
-                
-            .frame(width: 60, height: 60)
-            .clipShape(Circle())
-            .overlay(
-                Circle().trim(from: tap ? 0.001 : 1, to: 1)
-                    .stroke(Color.yellow, style: StrokeStyle(lineWidth: 3, lineCap: .round))
-                    .rotationEffect(Angle(degrees: 90))
-                    .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
-                    .animation(.easeInOut)
-            )
-                .scaleEffect(tap ? 1.2 : 1)
-                .gesture(LongPressGesture().updating($tap) { currentState, gestureState, transaction in
-                    gestureState = currentState
-                    
-                }
-                .onEnded({ value in
-                    self.press.toggle()
-                    
-                })).animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0))
+                    .clipShape(Circle())
+                    .scaleEffect(tap ? 1.2 : 1)
+                    .gesture(LongPressGesture().updating($tap) { currentState, gestureState, transaction in
+                        gestureState = currentState
+                        print("on \(currentState) \(gestureState)")
+                    }
+                    .onChanged({ value in
+                        self.smallCircleOpacity = 1
+                        print("changed \(value)")
+                    })
+                        .onEnded({ value in
+                            print("end \(value)")
+                            self.smallCircleOpacity = 0
+                            
+                            self.bigCircleScale = 0.9
+                            self.bigCircleOpacity = 1
+                            withAnimation(.linear(duration: 0.8)) {
+                                self.bigCircleScale = 1.8
+                                self.bigCircleOpacity = 0
+                            }
+                        }))
+            }.animation(.spring())
+                .frame(width: 60, height: 60)
+            
             
             Spacer()
             Text(self.data.name)
                 .font(Font.system(size: 14))
         }
+    }
+}
+struct NoButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+    }
+}
+
+extension View {
+    func delayTouches() -> some View {
+        Button(action: {}) {
+            highPriorityGesture(TapGesture())
+        }
+        .buttonStyle(NoButtonStyle())
     }
 }

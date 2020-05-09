@@ -45,7 +45,7 @@ struct CollectionViewCell: View {
                 ZStack {
                     Circle()
                         .trim(from: 0, to: CGFloat(leftTime) / CGFloat(kCoolTime))
-                        .stroke(lineWidth: 4.0)
+                        .stroke(lineWidth: 10.0)
                         .opacity(self.selected ? 0 : 1)
                         .foregroundColor(Color.yellow)
                         .rotationEffect(Angle(degrees: 270))
@@ -101,5 +101,11 @@ struct CollectionViewCell: View {
             let now = Date.timeIntervalSinceReferenceDate
             self.leftTime = now - self.data.lastPing
         }
+    }
+}
+
+struct CollectionView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
