@@ -11,7 +11,6 @@ import Combine
 
 struct PasscodeView: View {
     @Binding var show: Bool
-    @Binding var ID: String
     @State var phoneNumber: String = ""
     
     @State var passcodeField = PasscodeField()
@@ -36,15 +35,15 @@ struct PasscodeView: View {
                 VStack {
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("인증번호를\n입력해주세요").font(.custom("NotoSansCJKjp-Medium", size: 24))
-                            Text("+821095156755에 전송함").font(.custom("NotoSansCJKjp-Medium", size: 14)).foregroundColor(Color("blackGray"))
-                        }
+                            Text("인증번호를\n입력해주세요").font(.custom("NotoSansCJKjp-Medium", size: 24)).fixedSize()
+                            Text("+821095156755에 전송함").font(.custom("NotoSansCJKjp-Medium", size: 14)).foregroundColor(Color("blackGray")).fixedSize()
+                        }.frame(height: 100)
                         
                         Spacer()
                     }
                     
-                    Spacer().frame(height: 100)
-                    passcodeField
+                    Spacer().frame(height: 90)
+                    passcodeField.frame(height: 30)
                     Spacer()
                     
                     HStack {
@@ -90,7 +89,7 @@ struct PasscodeField: View {
             }
             
             CustomTextField(text: $viewModel.codeInput, isResponder: $isRespond, keyboard: UIKeyboardType.numberPad)
-        }.frame(height: 100)
+        }
     }
 }
 
@@ -154,12 +153,12 @@ extension String {
 }
 
 //
-//struct PasscodeView_Previews: PreviewProvider {
-//    @State var show: Bool = true
-//    static var previews: some View {
-//        PasscodeView(show: $show)
-//    }
-//}
+struct PasscodeView_Previews: PreviewProvider {
+    @State var show: Bool = true
+    static var previews: some View {
+        PasscodeView(show: .constant(false))
+    }
+}
 
 
 
@@ -168,7 +167,7 @@ struct AdaptsToSoftwareKeyboard: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .padding(.bottom, currentHeight)
+            .padding(.bottom, currentHeight - 10)
             .edgesIgnoringSafeArea(.bottom)
             .onAppear(perform: subscribeToKeyboardEvents)
     }

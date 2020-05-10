@@ -7,13 +7,17 @@
 //
 
 import SwiftUI
+import Combine
 
 struct NumberView: View {
+    
+    @ObservedObject var viewModel: NumberViewModel = NumberViewModel()
+    
     @State var isPresented: Bool = false
     @State var phoneNumber: String = ""
     @State var show: Bool = false
     @State var ID = ""
-    @State var isRespond: Bool? = true
+    @State var isRespond: Bool? = false
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -47,10 +51,11 @@ struct NumberView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        NavigationLink(destination: PasscodeView(show: $show, ID: $ID), isActive: $show) {
+                        NavigationLink(destination: PasscodeView(show: self.$viewModel.success), isActive: self.$viewModel.success) {
                             Button(action: {
                                 print(self.phoneNumber)
-                                self.show.toggle()
+//                                self.show.toggle()
+                                self.viewModel.verifyPhone(phone: self.phoneNumber)
                             }) {
                                 Text("다음")
                                     .foregroundColor(.white)
@@ -60,6 +65,7 @@ struct NumberView: View {
                         }.background(Color("theme"))
                             .clipShape(Capsule())
                             .modifier(AdaptsToSoftwareKeyboard())
+                            .animation(.default)
                     }
                 }.padding(.horizontal, 24)
             }
@@ -80,32 +86,26 @@ struct NumberView_Previews: PreviewProvider {
     }
 }
 
-struct ViewControllerHolder {
-    weak var value: UIViewController?
-}
 
-struct ViewControllerKey: EnvironmentKey {
-    static var defaultValue: ViewControllerHolder {
-        return ViewControllerHolder(value: UIApplication.shared.windows.first?.rootViewController)
-        
-    }
-}
-
-extension EnvironmentValues {
-    var viewController: UIViewController? {
-        get { return self[ViewControllerKey.self].value }
-        set { self[ViewControllerKey.self].value = newValue }
-    }
-}
-
-extension UIViewController {
-    func present<Content: View>(style: UIModalPresentationStyle = .automatic, @ViewBuilder builder: () -> Content) {
-        let toPresent = UIHostingController(rootView: AnyView(EmptyView()))
-        toPresent.modalPresentationStyle = style
-        toPresent.rootView = AnyView(
-            builder()
-                .environment(\.viewController, toPresent)
-        )
-        self.present(toPresent, animated: true, completion: nil)
+class NumberViewModel: ObservableObject {
+    
+    private var disposables = Set<AnyCancellable>()
+    @Published var success: Bool = false
+    
+    
+    func verifyPhone(phone: String) {
+//            self.success = true
+//        return
+        SessionService.verifyPhone(phone: phone).sink(receiveCompletion: { (completion) in
+            switch completion {
+            case .failure(_):
+                print("erorr")
+            case .finished: ()
+                
+            }
+        }) { (data) in
+            print(data.verifyPhone.ok)
+            self.success = true
+        }.store(in: &disposables)
     }
 }
