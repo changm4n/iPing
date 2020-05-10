@@ -8,20 +8,16 @@
 
 import Foundation
 import Apollo
-//
-//final class SessionService {
-//
-//    let kBaseURL = "https://iping-backend.herokuapp.com"
-//    // Configure the network transport to use the singleton as the delegate.
-//    private lazy var networkTransport = HTTPNetworkTransport(
-//        url: URL(string: kBaseURL)!,
-//        delegate: self
-//    )
-//
-//    // Use the configured network transport in your Apollo client.
-//    private(set) lazy var apollo = ApolloClient(networkTransport: self.networkTransport)
-//
-//    static func singin(email: String, password: String) {
-//    }
-//}
-//
+import Combine
+
+public enum ApolloError: Error {
+    case gqlErrors([GraphQLError])
+    case error
+}
+
+final class SessionService {
+    
+    static func verifyPhone(phone: String) -> Future<VerifyMutation.Data, ApolloError> {
+        return Network.shared.apollo.performCombine(query: VerifyMutation(phone: phone))
+    }
+}
