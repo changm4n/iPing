@@ -16,8 +16,7 @@ public enum ApolloError: Error {
 }
 
 final class SessionService {
-    
     static func verifyPhone(phone: String) -> Future<VerifyMutation.Data, ApolloError> {
-        return Network.shared.apollo.performCombine(query: VerifyMutation(phone: phone))
+        return Network.shared.apollo.cb.perform(query: VerifyMutation(phone: phone))
     }
 }

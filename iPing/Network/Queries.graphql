@@ -3,3 +3,11 @@ mutation verify($phone: String!) {
     ok
   }
 }
+
+mutation check($phone: String!, $key: String!) {
+  completePhoneVerification(phoneNumber: $phone, key: $key) {
+    ok
+    message
+    token
+  }
+}

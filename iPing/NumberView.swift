@@ -17,7 +17,7 @@ struct NumberView: View {
     @State var phoneNumber: String = ""
     @State var show: Bool = false
     @State var ID = ""
-    @State var isRespond: Bool? = false
+    @State var isRespond: Bool? = true
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -92,10 +92,7 @@ class NumberViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
     @Published var success: Bool = false
     
-    
     func verifyPhone(phone: String) {
-//            self.success = true
-//        return
         SessionService.verifyPhone(phone: phone).sink(receiveCompletion: { (completion) in
             switch completion {
             case .failure(_):
