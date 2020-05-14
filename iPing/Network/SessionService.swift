@@ -19,4 +19,8 @@ final class SessionService {
     static func verifyPhone(phone: String) -> Future<VerifyMutation.Data, ApolloError> {
         return Network.shared.apollo.cb.perform(query: VerifyMutation(phone: phone))
     }
+    
+    static func verifyCode(phone: String, code: String) -> Future<CheckMutation.Data, ApolloError> {
+        return Network.shared.apollo.cb.perform(query: CheckMutation(phone: phone, key: code))
+    }
 }

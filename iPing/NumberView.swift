@@ -51,10 +51,11 @@ struct NumberView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        NavigationLink(destination: PasscodeView(show: self.$viewModel.success), isActive: self.$viewModel.success) {
+                        NavigationLink(destination: PasscodeView(show: self.$viewModel.success, phoneNumber: self.phoneNumber), isActive: self.$viewModel.success) {
                             Button(action: {
                                 print(self.phoneNumber)
 //                                self.show.toggle()
+                                
                                 self.viewModel.verifyPhone(phone: self.phoneNumber)
                             }) {
                                 Text("다음")
@@ -93,6 +94,10 @@ class NumberViewModel: ObservableObject {
     @Published var success: Bool = false
     
     func verifyPhone(phone: String) {
+//        self.success = true
+//        return
+//        
+        
         SessionService.verifyPhone(phone: phone).sink(receiveCompletion: { (completion) in
             switch completion {
             case .failure(_):

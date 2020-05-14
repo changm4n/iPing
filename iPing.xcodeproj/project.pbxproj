@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5731D3B07D2B28B7CCDBFB0B /* Pods_iPingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA66048178BEF9465A3891DF /* Pods_iPingTests.framework */; };
 		C23D3A9324606FEC009E9224 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23D3A9224606FEC009E9224 /* GoogleService-Info.plist */; };
+		C2767B6E246BFE720068CA4F /* InpurNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2767B6D246BFE720068CA4F /* InpurNameView.swift */; };
 		C2F01E85245C308B0047C6B6 /* PasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F01E84245C308B0047C6B6 /* PasscodeView.swift */; };
 		C2F01E87245C30980047C6B6 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F01E86245C30980047C6B6 /* NumberView.swift */; };
 		C2F01E90245C44F50047C6B6 /* NotoSansCJKjp-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F01E89245C44F10047C6B6 /* NotoSansCJKjp-Medium.otf */; };
@@ -74,6 +75,7 @@
 		AB76684BB95F277F0EEFAF5A /* Pods_iPing_iPingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPing_iPingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD8D03C68E96813CB6725AD7 /* Pods-iPingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPingTests.debug.xcconfig"; path = "Target Support Files/Pods-iPingTests/Pods-iPingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C23D3A9224606FEC009E9224 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C2767B6D246BFE720068CA4F /* InpurNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InpurNameView.swift; sourceTree = "<group>"; };
 		C2F01E84245C308B0047C6B6 /* PasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeView.swift; sourceTree = "<group>"; };
 		C2F01E86245C30980047C6B6 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		C2F01E89245C44F10047C6B6 /* NotoSansCJKjp-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Medium.otf"; sourceTree = "<group>"; };
@@ -148,6 +150,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2767B6F246BFE830068CA4F /* Join */ = {
+			isa = PBXGroup;
+			children = (
+				C2767B6D246BFE720068CA4F /* InpurNameView.swift */,
+				C2F01E86245C30980047C6B6 /* NumberView.swift */,
+				C2F01E84245C308B0047C6B6 /* PasscodeView.swift */,
+			);
+			name = Join;
+			sourceTree = "<group>";
+		};
 		C2F01E88245C44D80047C6B6 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,8 +256,7 @@
 				EDAA6449244856180001F82A /* PingButton.swift */,
 				EDAA644724432C3B0001F82A /* StartView.swift */,
 				EDAA644D244C3BE00001F82A /* LoginView.swift */,
-				C2F01E86245C30980047C6B6 /* NumberView.swift */,
-				C2F01E84245C308B0047C6B6 /* PasscodeView.swift */,
+				C2767B6F246BFE830068CA4F /* Join */,
 				C2F01E97246056C10047C6B6 /* TextField.swift */,
 				EDAA644B2448584B0001F82A /* CollectionView.swift */,
 				EDE377F4243ED9BB0002D7DC /* Assets.xcassets */,
@@ -527,6 +538,7 @@
 				EDAA644E244C3BE00001F82A /* LoginView.swift in Sources */,
 				C2F01E85245C308B0047C6B6 /* PasscodeView.swift in Sources */,
 				C2F01E98246056C10047C6B6 /* TextField.swift in Sources */,
+				C2767B6E246BFE720068CA4F /* InpurNameView.swift in Sources */,
 				EDAA644A244856180001F82A /* PingButton.swift in Sources */,
 				EDE377EF243ED9B70002D7DC /* AppDelegate.swift in Sources */,
 				EDAA645E244DDA390001F82A /* SessionService.swift in Sources */,

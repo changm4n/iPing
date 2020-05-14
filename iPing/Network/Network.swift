@@ -9,24 +9,12 @@
 import Foundation
 import Apollo
 
-// MARK: - Singleton Wrapper
-
 class Network {
-
     
     static let shared = Network()
 
     private(set) lazy var apollo = ApolloClient(url: URL(string: kBaseURL)!)
 
-//    func perform<Query: GraphQLMutation>(query: Query) -> Maybe<Query.Data> {
-//        Network.isNetworking(status: true)
-//        return self.apollo.rx.perform(mutation: query, context: nil, queue: .main)
-//            .do(onNext: { (_) in
-//                Network.isNetworking(status: false)
-//            }, onError: { _ in
-//                Network.isNetworking(status: false)
-//            })
-//    }
 }
 
 // MARK: - Pre-flight delegate
@@ -35,7 +23,6 @@ extension Network: HTTPNetworkTransportPreflightDelegate {
 
     func networkTransport(_ networkTransport: HTTPNetworkTransport,
                           shouldSend request: URLRequest) -> Bool {
-        // If there's an authenticated user, send the request. If not, don't.
         return true
     }
 

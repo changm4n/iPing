@@ -24,15 +24,6 @@ struct LoginView: View {
                 LogoView().padding(.top, 100)
                 Spacer()
                 
-//                NavigationLink(destination: NumberView()) {
-//                    Text("iPING 시작하기")
-//                                        .foregroundColor(.white)
-//                                        .fontWeight(.bold)
-//                                        .frame(width: UIScreen.main.bounds.width - 48, height: 50)
-//                }.background(Color("theme"))
-//                .clipShape(Capsule())
-//                .padding(.bottom, 8)
-                
                 NavigationLink(destination: NumberView(), isActive: self.$isActive) {
                     Text("iPING 시작하기")
                         .foregroundColor(.white)

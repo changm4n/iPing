@@ -11,13 +11,17 @@ import Combine
 
 struct PasscodeView: View {
     @Binding var show: Bool
-    @State var phoneNumber: String = ""
+    @State var phoneNumber: String
     
-    @State var passcodeField = PasscodeField()
-    
+    @ObservedObject var viewModel: PasscodeViewModel = PasscodeViewModel()
+    @State var isRespond: Bool? = true
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     
     @GestureState private var dragOffset = CGSize.zero
+    
+    @State var code: String = ""
+    
+    
     var btnBack : some View { Button(action: {
         self.show.toggle()
     }) {
@@ -27,6 +31,8 @@ struct PasscodeView: View {
     }
     
     @State var passcode: String = ""
+    
+    var disposeBag = Set<AnyCancellable>()
     
     var body: some View {
         ZStack {
@@ -43,18 +49,31 @@ struct PasscodeView: View {
                     }
                     
                     Spacer().frame(height: 90)
-                    passcodeField.frame(height: 30)
+                    
+                    VStack {
+                        DefaultTextField(text: $code, isResponder: $isRespond, keyboard: UIKeyboardType.numberPad)
+                            .frame(height: 25).padding(.vertical, 4)
+                        Rectangle().frame(height: 2).foregroundColor(Color("theme"))
+                    }
+                    
                     Spacer()
                     
                     HStack {
                         Spacer()
                         
+                        NavigationLink(destination: InputNameView(), isActive: self.$viewModel.isNew) {
+                            Text("")
+                        }.hidden()
                         
                         Button(action: {
-                            self.viewControllerHolder?.present(style: .fullScreen) {
-                                          ContentView()
-                                       }
+                            if self.viewModel.type == .MEMBER {
+                                self.viewControllerHolder?.present(style: .fullScreen) {
+                                    ContentView()
+                                }
+                                
+                            }
                             
+                            self.viewModel.sendCheck(phone: self.phoneNumber, code: self.code)
                         }) {
                             Text("다음")
                                 .foregroundColor(.white)
@@ -64,129 +83,54 @@ struct PasscodeView: View {
                         .background(Color("theme"))
                         .clipShape(Capsule())
                         .modifier(AdaptsToSoftwareKeyboard())
+                        .animation(.linear(duration: 0.1))
                     }
                 }
                 .padding(.horizontal, 24)
             }.navigationBarTitle("", displayMode: .automatic)
         }
     }
-    
 }
 
-struct PasscodeField: View {
-    @State var isRespond: Bool? = true
-    
-    @ObservedObject var viewModel: PasscodeViewModel = PasscodeViewModel()
-    
-    var body: some View {
-        
-        VStack {
-            HStack(alignment: .center, spacing: 30) {
-                ForEach(self.viewModel.codes) { (code) in
-                    Circle().frame(width: 16, height: 16)
-                        .foregroundColor(code.active ? Color("theme") : Color("defaultGray"))
-                }
-            }
-            
-            CustomTextField(text: $viewModel.codeInput, isResponder: $isRespond, keyboard: UIKeyboardType.numberPad)
-        }
-    }
+enum SessionType {
+    case NEW
+    case NONE
+    case MEMBER
 }
 
 class PasscodeViewModel: ObservableObject {
-    @Published var codeInput: String = "" {
+    @Published var type: SessionType = .NONE {
         didSet {
-            if codeInput.count > 4 && oldValue.count <= 4 {
-                codeInput = oldValue
+            if type == .NEW {
+                isNew = true
             }
         }
     }
+    @Published var isNew: Bool = false
+    @Published var success: Bool = false
     
-    @Published var codes: [Digit] = [Digit(), Digit(), Digit(), Digit()]
-    
+    var phone: String = ""
     private var disposables = Set<AnyCancellable>()
-    init() {
-        $codeInput.filter({
-            $0.count < 5
-        })
-            .sink(receiveValue: {
-                print("input code : \($0)")
-                for i in 0...3 {
-                    self.codes[i].value = $0.getStrBy(index: i)
-                }
-            }).store(in: &disposables)
-    }
-}
-
-struct Digit: Identifiable {
-    var id = UUID()
-    var value: String = "" {
-        didSet {
-            active = value != ""
-        }
-    }
     
-    var active: Bool = false
-}
-
-
-
-extension String {
-    func substring(to: Int) -> String {
-        guard self.count > to else {
-            return self
-        }
-        
-        let range = self.index(self.startIndex, offsetBy: to)
-        return String(self[startIndex...range])
-        
-    }
-    
-    func getStrBy(index idx: Int) -> String {
-        if self.count > idx {
-            let range = self.index(self.startIndex, offsetBy: idx)
-            return String(self[range])
-        }
-        
-        return ""
+    func sendCheck(phone: String, code: String) {
+        SessionService.verifyCode(phone: phone, code: code).sink(receiveCompletion: { (completion) in
+            
+        }) { (data) in
+            let token = data.completePhoneVerification.token
+            if token == nil {
+                print("NEW MEMBER")
+                self.type = .NEW
+            } else {
+                print("OLD MEMBER")
+                self.type = .MEMBER
+            }
+        }.store(in: &disposables)
     }
 }
 
-//
 struct PasscodeView_Previews: PreviewProvider {
     @State var show: Bool = true
     static var previews: some View {
-        PasscodeView(show: .constant(false))
-    }
-}
-
-
-
-struct AdaptsToSoftwareKeyboard: ViewModifier {
-    @State var currentHeight: CGFloat = 0
-    
-    func body(content: Content) -> some View {
-        content
-            .padding(.bottom, currentHeight - 10)
-            .edgesIgnoringSafeArea(.bottom)
-            .onAppear(perform: subscribeToKeyboardEvents)
-    }
-    
-    private func subscribeToKeyboardEvents() {
-        NotificationCenter.Publisher(
-            center: NotificationCenter.default,
-            name: UIResponder.keyboardWillShowNotification
-        ).compactMap { notification in
-            notification.userInfo?["UIKeyboardFrameEndUserInfoKey"] as? CGRect
-        }.map { rect in
-            rect.height
-        }.subscribe(Subscribers.Assign(object: self, keyPath: \.currentHeight))
-        
-        NotificationCenter.Publisher(
-            center: NotificationCenter.default,
-            name: UIResponder.keyboardWillHideNotification
-        ).compactMap { notification in
-            CGFloat.zero
-        }.subscribe(Subscribers.Assign(object: self, keyPath: \.currentHeight))
+        PasscodeView(show: .constant(false), phoneNumber: "1234")
     }
 }

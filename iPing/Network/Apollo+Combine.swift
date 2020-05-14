@@ -2,7 +2,7 @@
 //  Apollo+Combine.swift
 //  iPing
 //
-//  Created by kakao on 2020/05/11.
+//  Created by changmin lee on 2020/05/11.
 //  Copyright © 2020 changman. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import Foundation
 import Apollo
 import Combine
 
-extension Com where Base: ApolloClient {
-    public func perform<Query: GraphQLMutation>(query: Query) -> Future<Query.Data, ApolloError> {
+extension Combinable where Base: ApolloClient {
     
+    public func perform<Query: GraphQLMutation>(query: Query) -> Future<Query.Data, ApolloError> {
         return Future<Query.Data, ApolloError> { [weak base] promise in
             base?.perform(mutation: query) { result in
                 switch result {
@@ -33,9 +33,10 @@ extension Com where Base: ApolloClient {
 
 
 
-public struct Com<Base> {
-    /// Base object to extend.
+public struct Combinable<Base> {
+    
     public let base: Base
+    
     public init(_ base: Base) {
         self.base = base
     }
@@ -43,39 +44,38 @@ public struct Com<Base> {
 
 /// A type that has reactive extensions.
 public protocol CombineCompatible {
-    /// Extended type
+    
     associatedtype CombineBase
 
     @available(*, deprecated, renamed: "CombineBase")
     typealias CompatibleType = CombineBase
 
-    /// Reactive extensions.
-    static var cb: Com<CombineBase>.Type { get set }
+    
+    static var cb: Combinable<CombineBase>.Type { get set }
 
-    /// Reactive extensions.
-    var cb: Com<CombineBase> { get set }
+    
+    var cb: Combinable<CombineBase> { get set }
 }
 
 extension CombineCompatible {
-    /// Reactive extensions.
-    public static var cb: Com<Self>.Type {
+    
+    public static var cb: Combinable<Self>.Type {
         get {
-            return Com<Self>.self
+            return Combinable<Self>.self
         }
-        // swiftlint:disable:next unused_setter_value
+        
         set {
-            // this enables using Reactive to "mutate" base type
+            
         }
     }
 
-    /// Reactive extensions.
-    public var cb: Com<Self> {
+    public var cb: Combinable<Self> {
         get {
-            return Com(self)
+            return Combinable(self)
         }
-        // swiftlint:disable:next unused_setter_value
+        
         set {
-            // this enables using Reactive to "mutate" base object
+        
         }
     }
 }
