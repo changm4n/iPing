@@ -10,6 +10,8 @@ import SwiftUI
 
 struct PingButton: View {
     
+    let kCircleSize: CGFloat = 84
+    
     @ObservedObject var data: DataModel
     
     @GestureState var tap: Bool = false
@@ -41,7 +43,7 @@ struct PingButton: View {
                 
                 Image(self.data.imageName)
                     .resizable()
-                    .frame(width: 60, height: 60)
+                    .frame(width: kCircleSize, height: kCircleSize)
                     .clipShape(Circle())
                     .scaleEffect(tap ? 1.2 : 1)
                     .gesture(LongPressGesture().updating($tap) { currentState, gestureState, transaction in
@@ -64,7 +66,7 @@ struct PingButton: View {
                             }
                         }))
             }.animation(.spring())
-                .frame(width: 60, height: 60)
+                .frame(width: kCircleSize, height: kCircleSize)
             
             
             Spacer()

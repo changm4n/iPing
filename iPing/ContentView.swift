@@ -37,9 +37,10 @@ class DataModel: Identifiable, ObservableObject {
 
 let datas = ["구열","범키","영맨","희준","현수","한샘"]
 let names = datas + datas
+let sample = names.map({ DataModel(name: $0) }).chunked(by: 3)
 
 struct ContentView: View {
-    var data: [[DataModel]] = names.map({ DataModel(name: $0) }).chunked(by: 3)
+    var data: [[DataModel]] = sample
     
     init() {
         UITableView.appearance().tableFooterView = UIView()
@@ -48,16 +49,14 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            NavigationView {
-                CollectionView(data: self.data).navigationBarTitle("iPing")
-            }.tabItem {
+            HomeView(data: self.data).tabItem {
                 Text("핑")
             }
             
             Text("친구 리스트").tabItem {
                 Text("친구")
             }
-            Text("알림 리스트").tabItem {
+            AlarmView().tabItem {
                 Text("알림")
             }
             Text("설정").tabItem {

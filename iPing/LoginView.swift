@@ -10,6 +10,9 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
+    
+    
     @State var isActive: Bool = false
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -34,7 +37,9 @@ struct LoginView: View {
                     .padding(.bottom, 8)
                 
                 Button(action: {
-                    
+                    self.viewControllerHolder?.present(style: .fullScreen) {
+                        ContentView()
+                    }
                 }) {
                     Text("로그인")
                         .foregroundColor(.black)
