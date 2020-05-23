@@ -33,6 +33,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Gilroy-Light.otf</string>
 		<string>NotoSansCJKjp-Thin.otf</string>
 		<string>NotoSansCJKjp-Regular.otf</string>
 		<string>NotoSansCJKjp-Medium.otf</string>
