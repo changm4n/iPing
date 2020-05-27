@@ -15,12 +15,13 @@ struct LoginView: View {
     
     @State var isActive: Bool = false
     init() {
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().tintColor = UIColor(named: "blackGray")
-        UINavigationBar.appearance().backgroundColor = .clear
+//        UINavigationBar.appearance().backgroundColor = .clear
     }
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {

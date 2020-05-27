@@ -12,6 +12,9 @@
 		C216E02D2478FF6000F2590A /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C216E02C2478FF6000F2590A /* FontExtension.swift */; };
 		C23D3A9324606FEC009E9224 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23D3A9224606FEC009E9224 /* GoogleService-Info.plist */; };
 		C2767B6E246BFE720068CA4F /* InpurNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2767B6D246BFE720068CA4F /* InpurNameView.swift */; };
+		C2DE14CC247E896700B9D324 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE14CB247E896700B9D324 /* FriendsView.swift */; };
+		C2DE14CE247E897300B9D324 /* ContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE14CD247E897300B9D324 /* ContactStore.swift */; };
+		C2DE14D0247E8E6800B9D324 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE14CF247E8E6800B9D324 /* SettingView.swift */; };
 		C2F01E85245C308B0047C6B6 /* PasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F01E84245C308B0047C6B6 /* PasscodeView.swift */; };
 		C2F01E87245C30980047C6B6 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F01E86245C30980047C6B6 /* NumberView.swift */; };
 		C2F01E90245C44F50047C6B6 /* NotoSansCJKjp-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F01E89245C44F10047C6B6 /* NotoSansCJKjp-Medium.otf */; };
@@ -82,6 +85,9 @@
 		C216E02C2478FF6000F2590A /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		C23D3A9224606FEC009E9224 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2767B6D246BFE720068CA4F /* InpurNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InpurNameView.swift; sourceTree = "<group>"; };
+		C2DE14CB247E896700B9D324 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		C2DE14CD247E897300B9D324 /* ContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStore.swift; sourceTree = "<group>"; };
+		C2DE14CF247E8E6800B9D324 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		C2F01E84245C308B0047C6B6 /* PasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeView.swift; sourceTree = "<group>"; };
 		C2F01E86245C30980047C6B6 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		C2F01E89245C44F10047C6B6 /* NotoSansCJKjp-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKjp-Medium.otf"; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 			children = (
 				C2F0987324687CC100CA29D2 /* Extensions.swift */,
 				C216E02C2478FF6000F2590A /* FontExtension.swift */,
+				C2DE14CD247E897300B9D324 /* ContactStore.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -198,7 +205,9 @@
 			isa = PBXGroup;
 			children = (
 				C216E02A2478F61E00F2590A /* HomeView.swift */,
+				C2DE14CB247E896700B9D324 /* FriendsView.swift */,
 				C2F161EF247914CE00D808D7 /* AlarmView.swift */,
+				C2DE14CF247E8E6800B9D324 /* SettingView.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -557,13 +566,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2DE14CC247E896700B9D324 /* FriendsView.swift in Sources */,
 				EDAA644C2448584B0001F82A /* CollectionView.swift in Sources */,
 				EDAA644E244C3BE00001F82A /* LoginView.swift in Sources */,
 				C2F161F0247914CE00D808D7 /* AlarmView.swift in Sources */,
+				C2DE14D0247E8E6800B9D324 /* SettingView.swift in Sources */,
 				C2F01E85245C308B0047C6B6 /* PasscodeView.swift in Sources */,
 				C2F01E98246056C10047C6B6 /* TextField.swift in Sources */,
 				C2767B6E246BFE720068CA4F /* InpurNameView.swift in Sources */,
 				EDAA644A244856180001F82A /* PingButton.swift in Sources */,
+				C2DE14CE247E897300B9D324 /* ContactStore.swift in Sources */,
 				C216E02D2478FF6000F2590A /* FontExtension.swift in Sources */,
 				EDE377EF243ED9B70002D7DC /* AppDelegate.swift in Sources */,
 				EDAA645E244DDA390001F82A /* SessionService.swift in Sources */,

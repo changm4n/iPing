@@ -53,13 +53,14 @@ struct ContentView: View {
                 Text("핑")
             }
             
-            Text("친구 리스트").tabItem {
+            FriendsView().environmentObject(ContactStore()).tabItem {
+                
                 Text("친구")
             }
             AlarmView().tabItem {
-                Text("알림")
+                AlarmView()
             }
-            Text("설정").tabItem {
+            SettingView().tabItem {
                 Text("설정")
             }
         }

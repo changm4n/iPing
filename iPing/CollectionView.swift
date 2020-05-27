@@ -32,7 +32,7 @@ struct CollectionViewCell: View {
     let timer = Timer.publish(every: 0.09, on: .main, in: .common).autoconnect()
     
     let kCoolTime: Double = 10
-    
+    let kCircleSize: CGFloat = 84
     @State private var leftTime: Double = 0
     @State private var selected = false
     
@@ -54,7 +54,7 @@ struct CollectionViewCell: View {
                     
                     Image(self.data.imageName)
                         .resizable()
-                        .frame(width: 70, height: 70)
+                        .frame(width: kCircleSize, height: kCircleSize)
                         .foregroundColor(.gray)
                         .clipShape(Circle())
                         .shadow(radius: 10)
@@ -68,7 +68,7 @@ struct CollectionViewCell: View {
                         )
                     
                     Circle()
-                        .frame(width: 70, height: 70)
+                        .frame(width: kCircleSize, height: kCircleSize)
                         .foregroundColor(Color.black)
                         .opacity(0.6 - (leftTime / kCoolTime))
                         .shadow(radius: 10)
@@ -92,15 +92,7 @@ struct CollectionViewCell: View {
                 }
             }
             
-        })).onReceive(timer) { _ in
-            let now = Date.timeIntervalSinceReferenceDate
-            withAnimation(Animation.default) {
-                self.leftTime = now - self.data.lastPing
-            }
-        }.onAppear {
-            let now = Date.timeIntervalSinceReferenceDate
-            self.leftTime = now - self.data.lastPing
-        }
+        }))
     }
 }
 

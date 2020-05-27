@@ -19,37 +19,41 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                HStack(alignment: .center) {
-                    Text("Total 19").font(.getCustom(type: .GIL, size: 39, weight: .LIGHT)).foregroundColor(Color("blackGray"))
-                    Spacer()
-                }.frame(height: 30)
-                    .padding(.horizontal, 24)
-                
-                SegmentBar(index: self.$index, offset: self.$offset).padding(.top, 24)
-                
-                GeometryReader { geo in
-                    HStack(spacing: 0){
-                        CollectionView(data: self.data).frame(width: geo.frame(in : .global).width)
-                        CollectionView(data: self.data).frame(width: geo.frame(in : .global).width)
-                    }.offset(x: self.offset)
-                    .highPriorityGesture(DragGesture()
+            ZStack {
+                Color("background").edgesIgnoringSafeArea(.all)
+                VStack {
+                    HStack(alignment: .center) {
+                        Text("Total 19").font(.getCustom(type: .GIL, size: 39, weight: .LIGHT)).foregroundColor(Color("blackGray"))
+                        Spacer()
+                    }.frame(height: 30)
+                        .padding(.horizontal, 24)
                     
-                    .onEnded({ (value) in
+                    SegmentBar(index: self.$index, offset: self.$offset).padding(.top, 24)
                     
-                        if value.translation.width > 50{// minimum drag...
-                            
-                            print("right")
-                            self.changeView(left: false)
-                        }
-                        if -value.translation.width > 50{
-                            
-                            print("left")
-                            self.changeView(left: true)
-                        }
-                    }))
-                }
-            }.navigationBarItems(leading: Text("iPING").font(.getCustom(type: .NOTO, size: 14, weight: .MEDIUM)).foregroundColor(Color("blackGray")).padding(.horizontal, 10))
+                    GeometryReader { geo in
+                        HStack(spacing: 0){
+                            CollectionView(data: self.data).frame(width: geo.frame(in : .global).width)
+                            CollectionView(data: self.data).frame(width: geo.frame(in : .global).width)
+                        }.offset(x: self.offset)
+                        .highPriorityGesture(DragGesture()
+                        
+                        .onEnded({ (value) in
+                        
+                            if value.translation.width > 50{// minimum drag...
+                                
+                                print("right")
+                                self.changeView(left: false)
+                            }
+                            if -value.translation.width > 50{
+                                
+                                print("left")
+                                self.changeView(left: true)
+                            }
+                        }))
+                    }
+                }.navigationBarItems(leading: Text("iPING").font(.getCustom(type: .NOTO, size: 14, weight: .MEDIUM)).foregroundColor(Color("blackGray")).padding(.horizontal, 10))
+            }
+            
         }.navigationBarTitle("", displayMode: .inline)
     }
     
