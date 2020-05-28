@@ -33,13 +33,21 @@ struct AlarmView: View {
         NavigationView {
             ZStack {
                 Color("background").edgesIgnoringSafeArea(.all)
-                List() {
-                    Section(footer: Footer()) {
+                
+                ScrollView {
+                    VStack {
                         ForEach(self.sample, id: \.self) { i in
-                            AlarmCell().frame(height: 70)
-                        }.listRowBackground(Color.white)
-                    }
-                }
+                            AlarmCell().frame(height: 70).padding(.vertical, 4)
+                        }
+                    }.background(Color.white)
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color("defaultGray"), lineWidth: 0.5)
+                    )
+//                        .cornerRadius(20)
+                    
+                }.padding(.vertical)
                 .navigationBarItems(leading:
                     Text("iPING")
                         .font(.getCustom(type: .NOTO, size: 14, weight: .MEDIUM))
@@ -67,7 +75,7 @@ struct AlarmCell: View {
             }.padding()
             Spacer()
             Image(systemName: "ellipsis")
-        }.padding(.horizontal, 4)
+        }.padding()
     }
 }
 

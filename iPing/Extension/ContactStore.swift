@@ -11,8 +11,14 @@ import SwiftUI
 import os
 
 class ContactStore: ObservableObject {
+    static let shared: ContactStore = ContactStore()
+    
     @Published var contacts: [CNContact] = []
     @Published var error: Error? = nil
+    
+    init() {
+        fetch()
+    }
 
     func fetch() {
         guard self.contacts.count == 0 else { return }

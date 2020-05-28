@@ -15,11 +15,11 @@ struct LoginView: View {
     
     @State var isActive: Bool = false
     init() {
-//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().tintColor = UIColor(named: "blackGray")
-//        UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().barTintColor = UIColor(named: "background")
     }
     
     var body: some View {
@@ -38,6 +38,7 @@ struct LoginView: View {
                     .padding(.bottom, 8)
                 
                 Button(action: {
+                    ContactStore.shared.fetch()
                     self.viewControllerHolder?.present(style: .fullScreen) {
                         ContentView()
                     }
