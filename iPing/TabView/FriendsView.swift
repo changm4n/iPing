@@ -10,54 +10,67 @@ import SwiftUI
 import Contacts
 
 struct FriendsView: View {
-    @EnvironmentObject var store: ContactStore
     
+    @State var showSearch: Bool = false
+    @State var showAdd: Bool = false
+    
+    @EnvironmentObject var store: ContactStore
+    @State private var searchText = ""
+    @State private var showCancelButton: Bool = false
+    
+    @ObservedObject var viewModel = ContactViewModel()
     var body: some View {
-        
-        NavigationView {
-            ZStack {
-                Color("background").edgesIgnoringSafeArea(.all)
-                
-                VStack(spacing: 0) {
-                    HStack(spacing: 0) {
-                        Text("친구 \(ContactStore.shared.contacts.count)명")
-                            .font(Font.getCustom(type: .NOTO, size: 24, weight: .MEDIUM))
-                            .frame(alignment: .leading)
-                        Spacer()
-                    }.padding(.horizontal)
+        ZStack {
+            if self.showSearch {
+                SearchView(show: self.$showSearch)
+            } else if self.showAdd {
+                Text("add")
+            } else {
+                NavigationView {
+                        List {
+                            HStack {
+                                Spacer()
+                                Text("\(self.store.contacts.count) 명").font(.caption)
+                            }.listRowBackground(Color("background"))
+                                .frame(height: 10)
+                            
+                            
+                            ForEach(store.contacts, id:\.self) { contact in
+                                FriendsCell(name: contact.name).frame(height: 50).listRowBackground(Color("background"))
+                            }
+                        }.environment(\.defaultMinListRowHeight, 10)
                     
-                    FriendsTableView()
+                    .navigationBarItems(leading: LogoItem(), trailing: NaviItem(showSearch: self.$showSearch, showAdd: self.$showAdd))
+                    .navigationBarTitle("친구", displayMode: .large)
                 }
-            }.navigationBarItems(leading:
-                Text("iPING")
-                    .font(.getCustom(type: .NOTO, size: 14, weight: .MEDIUM))
-                    .foregroundColor(Color("blackGray"))
-                    .padding(.horizontal, 10))
-                .navigationBarTitle("친구", displayMode: .inline)
-            
+            }
         }
     }
 }
 
-struct FriendsTableView: View {
+struct NaviItem: View {
+    
+    @Binding var showSearch: Bool
+    @Binding var showAdd: Bool
     var body: some View {
-        ScrollView {
-            VStack {
-                if ContactStore.shared.error == nil {
-                    
-                    ForEach(ContactStore.shared.contacts) { contact in
-                        FriendsCell(name: contact.name).frame(height: 70)
-                    }
-                } else {
-                    Text("error: \( ContactStore.shared.error!.localizedDescription)")
+        
+        HStack(spacing: 4) {
+            Button(action: {
+                withAnimation {
+                    self.showSearch = true
                 }
-            }.background(Color.white)
-                .cornerRadius(20)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color("defaultGray"), lineWidth: 0.5)
-            )
-        }.padding(.vertical)
+            }) {
+                Image(systemName: "magnifyingglass")
+            }.padding()
+            Spacer()
+            Button(action: {
+                withAnimation {
+                    self.showAdd = true
+                }
+            }) {
+                Image(systemName: "plus")
+            }
+        }
     }
 }
 
@@ -68,18 +81,66 @@ struct FriendsCell: View {
         HStack(alignment: .center) {
             Image("창민")
                 .resizable()
-                .frame(width: 60, height: 60)
+                .frame(width: 40, height: 40)
                 .clipShape(Circle())
             
             Text(self.name).padding()
             Spacer()
             Image(systemName: "ellipsis")
-        }.padding()
+        }
+        .padding(.vertical)
+        .padding(.horizontal, 4)
     }
 }
 
 struct FriendsView_Previews: PreviewProvider {
     static var previews: some View {
         FriendsView().environmentObject(ContactStore())
+    }
+}
+
+
+struct SearchView: View {
+    @ObservedObject var viewModel = ContactViewModel()
+    @State private var searchText = ""
+    @Binding var show: Bool
+    
+    var body: some View {
+        VStack {
+            HStack {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                    
+                    TextField("search", text: $viewModel.searchString)
+                    
+                    Button(action: {
+                        self.searchText = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill").opacity(searchText == "" ? 0 : 1)
+                    }
+                }
+                .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
+                .foregroundColor(.secondary)
+                .background(Color(.secondarySystemBackground))
+                .cornerRadius(10.0)
+                
+                Button("취소") {
+                    UIApplication.shared.endEditing(true)
+                    self.searchText = ""
+                    withAnimation {
+                        self.show = false
+                    }
+                }
+                .foregroundColor(Color(.systemBlue))
+                
+            }
+            .padding(.horizontal)
+            
+            List {
+                ForEach(self.viewModel.result, id:\.self) { contact in
+                    FriendsCell(name: contact.name).frame(height: 50)
+                }
+            }.resignKeyboardOnDragGesture()
+        }
     }
 }

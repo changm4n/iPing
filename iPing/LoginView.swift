@@ -8,6 +8,28 @@
 
 import SwiftUI
 
+func configureStandard() {
+    let navBarAppearance = UINavigationBarAppearance()
+    navBarAppearance.configureWithOpaqueBackground()
+    navBarAppearance.backgroundColor = UIColor(named: "background")
+    navBarAppearance.shadowColor = .clear
+    navBarAppearance.backgroundImage = UIImage()
+
+    UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).standardAppearance = navBarAppearance
+    UINavigationBar.appearance().tintColor = UIColor(named: "blackGray")
+}
+
+func configureLarge() {
+    let navBarAppearance = UINavigationBarAppearance()
+    navBarAppearance.configureWithOpaqueBackground()
+    navBarAppearance.backgroundColor = UIColor(named: "background")
+    navBarAppearance.shadowColor = .clear
+    navBarAppearance.backgroundImage = UIImage()
+    
+    UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).scrollEdgeAppearance = navBarAppearance
+    UINavigationBar.appearance().tintColor = UIColor(named: "blackGray")
+}
+
 struct LoginView: View {
     
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
@@ -15,50 +37,51 @@ struct LoginView: View {
     
     @State var isActive: Bool = false
     init() {
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().tintColor = UIColor(named: "blackGray")
-        UINavigationBar.appearance().barTintColor = UIColor(named: "background")
+//        configureLarge()
+//        configureStandard()
     }
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                LogoView().padding(.top, 100)
-                Spacer()
-                
-                NavigationLink(destination: NumberView(), isActive: self.$isActive) {
-                    Text("iPING 시작하기")
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .frame(width: UIScreen.main.bounds.width - 48, height: 50)
-                }.background(Color("theme"))
-                    .clipShape(Capsule())
-                    .padding(.bottom, 8)
-                
-                Button(action: {
-                    ContactStore.shared.fetch()
-                    self.viewControllerHolder?.present(style: .fullScreen) {
-                        ContentView()
-                    }
-                }) {
-                    Text("로그인")
-                        .foregroundColor(.black)
-                        .fontWeight(.bold)
-                        .frame(width: UIScreen.main.bounds.width - 48, height: 50)
-                }
-                .background(Color.white)
-                .clipShape(Capsule())
-                
-                Spacer().frame(height: 30)
-                SignUpButton()
-                Spacer().frame(height: 20)
+            ZStack {
+                Color("background").edgesIgnoringSafeArea(.all)
+                VStack(alignment: .leading) {
+                                LogoView()
+//                                    .padding(.top, 100)
+                                Spacer()
+                                
+                                NavigationLink(destination: NumberView(), isActive: self.$isActive) {
+                                    Text("iPING 시작하기")
+                                        .foregroundColor(.white)
+                                        .fontWeight(.bold)
+                                        .frame(width: UIScreen.main.bounds.width - 48, height: 50)
+                                }.background(Color("theme"))
+                                    .clipShape(Capsule())
+                                    .padding(.bottom, 8)
+                                
+                                Button(action: {
+                                    ContactStore.shared.fetch()
+                                    self.viewControllerHolder?.present(style: .fullScreen) {
+                                        ContentView()
+                                    }
+                                }) {
+                                    Text("로그인")
+                                        .foregroundColor(.black)
+                                        .fontWeight(.bold)
+                                        .frame(width: UIScreen.main.bounds.width - 48, height: 50)
+                                }
+                                .background(Color.white)
+                                .clipShape(Capsule())
+                                
+                                Spacer().frame(height: 30)
+                                SignUpButton()
+                                Spacer().frame(height: 20)
+                            }
+                            .padding()
+                            .background(Color("background"))
+                            .navigationBarTitle("", displayMode: .inline)
             }
-            .padding()
-            .background(Color("background"))
-            .edgesIgnoringSafeArea(.all)
-            .navigationBarTitle("", displayMode: .large)
+            
         }
     }
 }

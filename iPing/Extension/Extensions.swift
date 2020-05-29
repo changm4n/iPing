@@ -98,3 +98,35 @@ struct AdaptsToSoftwareKeyboard: ViewModifier {
     }
 }
 
+struct LogoItem: View {
+    var body: some View {
+        Text("iPING")
+        .font(.getCustom(type: .NOTO, size: 14, weight: .MEDIUM))
+        .foregroundColor(Color("blackGray"))
+        .padding(.horizontal, 10)
+    }
+}
+
+extension UIApplication {
+    func endEditing(_ force: Bool) {
+        self.windows
+            .filter{$0.isKeyWindow}
+            .first?
+            .endEditing(force)
+    }
+}
+
+struct ResignKeyboardOnDragGesture: ViewModifier {
+    var gesture = DragGesture().onChanged{_ in
+        UIApplication.shared.endEditing(true)
+    }
+    func body(content: Content) -> some View {
+        content.gesture(gesture)
+    }
+}
+
+extension View {
+    func resignKeyboardOnDragGesture() -> some View {
+        return modifier(ResignKeyboardOnDragGesture())
+    }
+}

@@ -75,10 +75,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct BounceButtonStyle: ButtonStyle {
-    let handler: () -> ()
     func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label.onTapGesture(count: 2, perform: {
-            self.handler()
-        }).scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+        configuration.label.scaleEffect(configuration.isPressed ? 0.9 : 1.0)
     }
 }

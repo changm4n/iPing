@@ -9,6 +9,20 @@
 import Contacts
 import SwiftUI
 import os
+import Combine
+
+class ContactViewModel: ObservableObject {
+    let store = ContactStore.shared
+    @Published var searchString: String = ""
+    @Published var result: [CNContact] = []
+    private var disposables = Set<AnyCancellable>()
+    init() {
+        $searchString.debounce(for: .seconds(0.3), scheduler: RunLoop.main).sink { (searchStr) in
+            self.result = self.store.contacts.filter {                         $0.name.hasPrefix(searchStr) && searchStr != ""
+            }
+        }.store(in: &disposables)
+    }
+}
 
 class ContactStore: ObservableObject {
     static let shared: ContactStore = ContactStore()
@@ -35,7 +49,9 @@ class ContactStore: ObservableObject {
             let predicate = CNContact.predicateForContactsInContainer(withIdentifier: containerId)
             let contacts = try store.unifiedContacts(matching: predicate, keysToFetch: keysToFetch)
             os_log("Fetching contacts: succesfull with count = %d", contacts.count)
-            self.contacts = contacts
+            self.contacts = contacts.sorted(by: { (lhs, rhs) -> Bool in
+                lhs.name > rhs.name
+            })
         } catch {
             os_log("Fetching contacts: failed with %@", error.localizedDescription)
             self.error = error

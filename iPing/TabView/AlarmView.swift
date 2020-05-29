@@ -22,40 +22,23 @@ struct AlarmView: View {
     
     init() {
         // To remove only extra separators below the list:
-//        UITableView.appearance().tableFooterView = UIView()
-
+        //        UITableView.appearance().tableFooterView = UIView()
+        
         // To remove all separators including the actual ones:
-        UITableView.appearance().backgroundColor = UIColor.clear
+        //        UITableView.appearance().backgroundColor = UIColor.clear
     }
     
     var body: some View {
-        
-        NavigationView {
-            ZStack {
-                Color("background").edgesIgnoringSafeArea(.all)
-                
-                ScrollView {
-                    VStack {
-                        ForEach(self.sample, id: \.self) { i in
-                            AlarmCell().frame(height: 70).padding(.vertical, 4)
-                        }
-                    }.background(Color.white)
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color("defaultGray"), lineWidth: 0.5)
-                    )
-//                        .cornerRadius(20)
-                    
-                }.padding(.vertical)
-                .navigationBarItems(leading:
-                    Text("iPING")
-                        .font(.getCustom(type: .NOTO, size: 14, weight: .MEDIUM))
-                        .foregroundColor(Color("blackGray"))
-                .padding(.horizontal, 10))
-                .navigationBarTitle("알림", displayMode: .inline)
+        ZStack {
+            Color("background").edgesIgnoringSafeArea(.all)
+            NavigationView {
+                List {
+                    ForEach(self.sample, id: \.self) { i in
+                        AlarmCell().frame(height: 70)
+                    }
+                }.navigationBarItems(leading:LogoItem())
+                .navigationBarTitle("알림", displayMode: .large)
             }
-            
         }
     }
 }
@@ -68,14 +51,15 @@ struct AlarmCell: View {
                 .resizable()
                 .frame(width: 60, height: 60)
                 .clipShape(Circle())
+                .padding(.horizontal, 4)
             
             VStack(alignment: .leading) {
                 Text("누구님이 핑을 날렸습니다.").font(.headline)
                 Text("3시간 전").font(.caption)
-            }.padding()
+            }
             Spacer()
             Image(systemName: "ellipsis")
-        }.padding()
+        }.padding(.vertical)
     }
 }
 

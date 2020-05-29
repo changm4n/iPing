@@ -41,30 +41,44 @@ struct PingButton: View {
                     .opacity(bigCircleOpacity)
                 
                 
-                Image(self.data.imageName)
-                    .resizable()
-                    .frame(width: kCircleSize, height: kCircleSize)
-                    .clipShape(Circle())
-                    .scaleEffect(tap ? 1.2 : 1)
-                    .gesture(LongPressGesture().updating($tap) { currentState, gestureState, transaction in
-                        gestureState = currentState
-                        print("on \(currentState) \(gestureState)")
-                    }
-                    .onChanged({ value in
-                        self.smallCircleOpacity = 1
-                        print("changed \(value)")
-                    })
-                        .onEnded({ value in
-                            print("end \(value)")
+                Button(action: {
+                    
+                }, label: {
+                    Image(self.data.imageName)
+                        .resizable()
+                        .frame(width: kCircleSize, height: kCircleSize)
+                        .clipShape(Circle())
+                        .scaleEffect(tap ? 1.2 : 1)
+                        .onTapGesture {
                             self.smallCircleOpacity = 0
-                            
                             self.bigCircleScale = 0.9
                             self.bigCircleOpacity = 1
                             withAnimation(.linear(duration: 0.8)) {
                                 self.bigCircleScale = 1.8
                                 self.bigCircleOpacity = 0
                             }
-                        }))
+                    }
+                })
+                .buttonStyle(BounceButtonStyle())
+                //                    .gesture(LongPressGesture().updating($tap) { currentState, gestureState, transaction in
+                //                        gestureState = currentState
+                //                        print("on \(currentState) \(gestureState)")
+                //                    }
+//                    .onChanged({ value in
+//                        self.smallCircleOpacity = 1
+//                        print("changed \(value)")
+//                    })
+//                        .onEnded({ value in
+//                            print("end \(value)")
+//                            self.smallCircleOpacity = 0
+//
+//                            self.bigCircleScale = 0.9
+//                            self.bigCircleOpacity = 1
+//                            withAnimation(.linear(duration: 0.8)) {
+//                                self.bigCircleScale = 1.8
+//                                self.bigCircleOpacity = 0
+//                            }
+//                        }))
             }.animation(.spring())
                 .frame(width: kCircleSize, height: kCircleSize)
             
