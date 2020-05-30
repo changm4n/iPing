@@ -21,14 +21,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
         configureLarge()
         configureStandard()
-        let contentView = LoginView()
-//                let contentView = ContentView()
-//        let contentView =()
-
-        // Use a UIHostingController as window root view controller.
+        
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            if let user = Session.fetchUserFromSavedData() {
+                Session.me = user
+                window.rootViewController = UIHostingController(rootView: ContentView())
+            } else {
+                window.rootViewController = UIHostingController(rootView: LoginView())
+            }
+            
             self.window = window
             window.makeKeyAndVisible()
         }

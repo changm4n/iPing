@@ -13,7 +13,14 @@ class Network {
     
     static let shared = Network()
 
-    private(set) lazy var apollo = ApolloClient(url: URL(string: kBaseURL)!)
+//    private(set) lazy var apollo = ApolloClient(url: URL(string: kBaseURL)!)
+    private lazy var networkTransport: HTTPNetworkTransport = {
+        let transport = HTTPNetworkTransport(url: URL(string: kBaseURL)!)
+        transport.delegate = self
+        return transport
+    }()
+    // Use the configured network transport in your Apollo client.
+    private(set) lazy var apollo = ApolloClient(networkTransport: self.networkTransport)
 
 }
 
@@ -26,22 +33,14 @@ extension Network: HTTPNetworkTransportPreflightDelegate {
         return true
     }
 
-    func networkTransport(_ networkTransport: HTTPNetworkTransport,
-                          willSend request: inout URLRequest) {
-
-        // Get the existing headers, or create new ones if they're nil
-//        var headers = request.allHTTPHeaderFields ?? [String: String]()
-//        if let token = Session.fetchToken() {
-//
-//            #if DEBUG
-//            headers["Authorization"] = token
-//            #else
-//            headers["Authorization"] = "Bearer " + token
-//            #endif
-//            headers["Platform"] = "IOS"
-//        }
-//
-//        // Re-assign the updated headers to the request.
-//        request.allHTTPHeaderFields = headers
+    func networkTransport(_ networkTransport: HTTPNetworkTransport, willSend request: inout URLRequest) {
+        var headers = request.allHTTPHeaderFields ?? [String: String]()
+        if let token = Session.fetchToken() {
+            headers["Authorization"] = "Bearer " + token
+        }
+        print(headers["Authorization"] ?? "")
+        
+        // Re-assign the updated headers to the request.
+        request.allHTTPHeaderFields = headers
     }
 }

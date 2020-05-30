@@ -23,4 +23,13 @@ final class SessionService {
     static func verifyCode(phone: String, code: String) -> Future<CheckMutation.Data, ApolloError> {
         return Network.shared.apollo.cb.perform(query: CheckMutation(phone: phone, key: code))
     }
+    
+    static func signUp(name: String, phone: String, avatar: String? = nil) ->
+        Future<SignupMutation.Data, ApolloError> {
+            return Network.shared.apollo.cb.perform(query: SignupMutation(name: name, phone: phone, avatar: avatar))
+    }
+    
+    static func getMe() -> Future<MeQuery.Data, ApolloError> {
+        return Network.shared.apollo.cb.fetch(query: MeQuery())
+    }
 }

@@ -29,6 +29,24 @@ extension Combinable where Base: ApolloClient {
             }
         }
     }
+    
+    public func fetch<Query: GraphQLQuery>(query: Query) -> Future<Query.Data, ApolloError> {
+        return Future<Query.Data, ApolloError> { [weak base] promise in
+            base?.fetch(query: query) { result in
+                switch result {
+                case let .success(gqlResult):
+                    if let errors = gqlResult.errors {
+                        promise(.failure(ApolloError.gqlErrors(errors)))
+                    } else if let data = gqlResult.data {
+                        promise(.success(data))
+                    }
+                    
+                case .failure(_):
+                    promise(.failure(.error))
+                }
+            }
+        }
+    }
 }
 
 

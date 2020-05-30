@@ -42,7 +42,7 @@ struct PasscodeView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text("인증번호를\n입력해주세요").font(.custom("NotoSansCJKjp-Medium", size: 24)).fixedSize()
-                            Text("+821095156755에 전송함").font(.custom("NotoSansCJKjp-Medium", size: 14)).foregroundColor(Color("blackGray")).fixedSize()
+                            Text("\(self.phoneNumber)에 전송함").font(.custom("NotoSansCJKjp-Medium", size: 14)).foregroundColor(Color("blackGray")).fixedSize()
                         }.frame(height: 100)
                         
                         Spacer()
@@ -61,18 +61,11 @@ struct PasscodeView: View {
                     HStack {
                         Spacer()
                         
-                        NavigationLink(destination: InputNameView(), isActive: self.$viewModel.isNew) {
+                        NavigationLink(destination: InputNameView(viewModel: SignUpViewModel(phoneNumber: self.phoneNumber)), isActive: self.$viewModel.isNew) {
                             Text("")
                         }.hidden()
                         
                         Button(action: {
-                            if self.viewModel.type == .MEMBER {
-                                self.viewControllerHolder?.present(style: .fullScreen) {
-                                    ContentView()
-                                }
-                                
-                            }
-                            
                             self.viewModel.sendCheck(phone: self.phoneNumber, code: self.code)
                         }) {
                             Text("다음")
@@ -88,6 +81,15 @@ struct PasscodeView: View {
                 }
                 .padding(.horizontal, 24)
             }.navigationBarTitle("", displayMode: .automatic)
+                .alert(isPresented: $viewModel.isWrong) {
+                    Alert(title: Text("오류"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("닫기")))
+            }
+        }.onReceive(viewModel.$type) { (output) in
+            if output == .MEMBER {
+                self.viewControllerHolder?.present(style: .fullScreen) {
+                    ContentView()
+                }
+            }
         }
     }
 }
@@ -106,8 +108,10 @@ class PasscodeViewModel: ObservableObject {
             }
         }
     }
+    @Published var isWrong: Bool = false
     @Published var isNew: Bool = false
     @Published var success: Bool = false
+    @Published var errorMessage: String = ""
     
     var phone: String = ""
     private var disposables = Set<AnyCancellable>()
@@ -116,13 +120,44 @@ class PasscodeViewModel: ObservableObject {
         SessionService.verifyCode(phone: phone, code: code).sink(receiveCompletion: { (completion) in
             
         }) { (data) in
-            let token = data.completePhoneVerification.token
-            if token == nil {
+            guard data.completePhoneVerification.ok != false else {
+                self.errorMessage = "인증번호가 틀렸습니다!"
+                self.isWrong = true
+                return
+            }
+            
+            if let token = data.completePhoneVerification.token {
+                print("OLD MEMBER")
+                Session.me.saveToken(token: token)
+                
+                SessionService.getMe().sink(receiveCompletion: { (completion) in
+                    switch completion {
+                        case .failure(.gqlErrors(let error)):
+                            self.errorMessage = error.first?.message ?? ""
+                            self.isWrong = true
+                        case .finished: ()
+                        case .failure(.error): ()
+                    }
+                }) { (data) in
+                    guard data.me.ok != false else {
+                        self.isWrong = true
+                        self.errorMessage = "회원정보를 불러오는 중 오류가 발생하였습니다."
+                        return
+                    }
+                    
+                    Session.me.setValues(user: data.me.user?.fragments.userFragment)
+                    if Session.me.active {
+                        Session.me.saveMyProfile()
+                        self.type = .MEMBER
+                    } else {
+                        self.errorMessage = "회원정보를 불러오는 중 오류가 발생하였습니다."
+                        self.isWrong = true
+                        return
+                    }
+                }.store(in: &self.disposables)
+            } else {
                 print("NEW MEMBER")
                 self.type = .NEW
-            } else {
-                print("OLD MEMBER")
-                self.type = .MEMBER
             }
         }.store(in: &disposables)
     }

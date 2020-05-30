@@ -60,7 +60,7 @@ struct ContentView: View {
             AlarmView().tabItem {
                 AlarmView()
             }
-            SettingView().tabItem {
+            Text(Session.me.name).tabItem {
                 Text("설정")
             }
         }

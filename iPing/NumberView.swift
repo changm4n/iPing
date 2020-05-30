@@ -54,7 +54,6 @@ struct NumberView: View {
                         NavigationLink(destination: PasscodeView(show: self.$viewModel.success, phoneNumber: self.phoneNumber), isActive: self.$viewModel.success) {
                             Button(action: {
                                 print(self.phoneNumber)
-//                                self.show.toggle()
                                 
                                 self.viewModel.verifyPhone(phone: self.phoneNumber)
                             }) {

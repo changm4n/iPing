@@ -1,13 +1,73 @@
 mutation verify($phone: String!) {
-  verifyPhone(phoneNumber: $phone) {
-    ok
-  }
+    verifyPhone(phoneNumber: $phone) {
+        ok
+    }
 }
 
 mutation check($phone: String!, $key: String!) {
-  completePhoneVerification(phoneNumber: $phone, key: $key) {
-    ok
-    message
-    token
+    completePhoneVerification(phoneNumber: $phone, key: $key) {
+        ok
+        message
+        token
+    }
+}
+
+mutation signup($name: String!, $phone: String!, $avatar: String) {
+    createAccount(phoneNumber:$phone, name: $name, avatar: $avatar) {
+        ok
+        message
+        token
+    }
+}
+
+fragment Friend on User {
+    id
+    name
+    avatar
+}
+
+
+fragment SmallPing on Ping {
+    id
+    to {
+        ...Friend
+    }
+    
+    from {
+        ...Friend
+    }
+    text
+    confirm
+    createdAt
+}
+
+fragment UserFragment on User {
+  id
+  phoneNumber
+  name
+  avatar
+  deviceToken
+  unReadCount
+  friends {
+ id
+  }
+  sendPings {
+    ...SmallPing
+  }
+  recvPings {
+    ...SmallPing
   }
 }
+
+
+
+query Me {
+  me {
+    user {
+      ...UserFragment
+    }
+    ok
+    message
+  }
+}
+

@@ -12,6 +12,7 @@
 		C216E02D2478FF6000F2590A /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C216E02C2478FF6000F2590A /* FontExtension.swift */; };
 		C23D3A9324606FEC009E9224 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23D3A9224606FEC009E9224 /* GoogleService-Info.plist */; };
 		C2767B6E246BFE720068CA4F /* InpurNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2767B6D246BFE720068CA4F /* InpurNameView.swift */; };
+		C2BA79652482572D0047E5D1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BA79642482572D0047E5D1 /* User.swift */; };
 		C2DE14CC247E896700B9D324 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE14CB247E896700B9D324 /* FriendsView.swift */; };
 		C2DE14CE247E897300B9D324 /* ContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE14CD247E897300B9D324 /* ContactStore.swift */; };
 		C2DE14D0247E8E6800B9D324 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DE14CF247E8E6800B9D324 /* SettingView.swift */; };
@@ -85,6 +86,7 @@
 		C216E02C2478FF6000F2590A /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		C23D3A9224606FEC009E9224 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2767B6D246BFE720068CA4F /* InpurNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InpurNameView.swift; sourceTree = "<group>"; };
+		C2BA79642482572D0047E5D1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C2DE14CB247E896700B9D324 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		C2DE14CD247E897300B9D324 /* ContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStore.swift; sourceTree = "<group>"; };
 		C2DE14CF247E8E6800B9D324 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				C2F0986E2468677500CA29D2 /* schema.json */,
+				C2BA79642482572D0047E5D1 /* User.swift */,
 				EDAA645A244DD9630001F82A /* Queries.graphql */,
 				EDAA645D244DDA390001F82A /* SessionService.swift */,
 				EDAA645F244DDB520001F82A /* Network.swift */,
@@ -282,10 +285,10 @@
 				EDAA6454244C4EFA0001F82A /* iPing.entitlements */,
 				EDE377EE243ED9B70002D7DC /* AppDelegate.swift */,
 				EDE377F0243ED9B70002D7DC /* SceneDelegate.swift */,
-				EDE377F2243ED9B70002D7DC /* ContentView.swift */,
 				EDAA6449244856180001F82A /* PingButton.swift */,
 				EDAA644724432C3B0001F82A /* StartView.swift */,
 				EDAA644D244C3BE00001F82A /* LoginView.swift */,
+				EDE377F2243ED9B70002D7DC /* ContentView.swift */,
 				C2767B6F246BFE830068CA4F /* Join */,
 				C2F01E97246056C10047C6B6 /* TextField.swift */,
 				C2F161EE247914BF00D808D7 /* TabView */,
@@ -586,6 +589,7 @@
 				EDE377F1243ED9B70002D7DC /* SceneDelegate.swift in Sources */,
 				EDE377F3243ED9B70002D7DC /* ContentView.swift in Sources */,
 				C2F01E87245C30980047C6B6 /* NumberView.swift in Sources */,
+				C2BA79652482572D0047E5D1 /* User.swift in Sources */,
 				C2F098782468879700CA29D2 /* Secret.swift in Sources */,
 				EDAA644824432C3B0001F82A /* StartView.swift in Sources */,
 				C2F0987424687CC100CA29D2 /* Extensions.swift in Sources */,
